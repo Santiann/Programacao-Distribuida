@@ -1,4 +1,4 @@
-# 🪙 FCoin - Sistema Distribuído de Validação de Transações com Consenso
+# FCoin - Sistema Distribuído de Validação de Transações com Consenso
 
 Sistema distribuído que simula o processo de validação de uma moeda digital usando o algoritmo **Proof of Stake (PoS)**, dividido nas camadas **Banco**, **Seletor** e **Validador**. A arquitetura permite consenso descentralizado, validações concorrentes e identificação de validadores maliciosos.
 
