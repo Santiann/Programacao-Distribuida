@@ -112,6 +112,3 @@ Esse script irá:
 ## 📄 Licença
 
 MIT © 2025 — Desenvolvido para fins acadêmicos no contexto da disciplina **Programação Distribuída**
-```
-
----
