@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, render_template
 from app.validators.validador_base import validar_transacao
 import os
+from app import create_app
 
-app = Flask(__name__)
+app = create_app()
+
 VALIDADOR_ID = int(os.getenv("VALIDADOR_ID", 1))
 MALICIOSO = bool(int(os.getenv("MALICIOSO", 0)))
 

@@ -98,9 +98,19 @@ python3 main.py
 python3 run_seletor.py
 ```
 
-#### 🛡️ Validadores (portas 5002 a 5011)
+#### 🛡️ Para cadastrar os validadores (portas 5002 a 5011)
 ```bash
 python3 app/validators/cadastro_validador.py
+```
+
+#### 🛡️ Para subir os validadores (portas 5002 a 5011)
+```bash
+python3 app/validators/subir_validadores.py 
+```
+
+#### 🛡️ Para matar todos os validadores (portas 5002 a 5011)
+```bash
+pkill -f run_validador.py
 ```
 
 Esse script irá:
