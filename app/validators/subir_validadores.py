@@ -17,11 +17,12 @@ def subir_validadores():
         eh_malicioso = "1" if id_validador == 10 else "0"
 
         subprocess.Popen([
-            "python3","run_validador.py"
+            "python3", "run_validador.py"
         ], env={
             "PORTA": str(porta),
             "VALIDADOR_ID": str(id_validador),
             "MALICIOSO": eh_malicioso,
+            "PYTHONPATH": ".",
             **os.environ
         })
         print(f"Validador {id_validador} iniciado na porta {porta}")
