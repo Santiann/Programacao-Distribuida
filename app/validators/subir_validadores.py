@@ -22,7 +22,7 @@ def subir_validadores():
             "PORTA": str(porta),
             "VALIDADOR_ID": str(id_validador),
             "MALICIOSO": eh_malicioso,
-            "PYTHONPATH": ".",
+            "PYTHONPATH": os.getcwd(),
             **os.environ
         })
         print(f"Validador {id_validador} iniciado na porta {porta}")

@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, render_template
-from validators.validador_base import validar_transacao
+from flask import jsonify, render_template
+from app.validators.validador_base import validar_transacao
 import os
 from app import create_app
 
