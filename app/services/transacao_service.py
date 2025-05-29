@@ -40,8 +40,8 @@ def notificar_seletores(transacao):
         try:
             response = requests.post(url)
             resultado_json.append(response.json())
-        except Exception as e:
-            return jsonify(f"Erro ao contatar seletor {seletor.ipSeletor}: {e}")
+        except:
+            return jsonify(f"Erro ao contatar seletor {seletor.ipSeletor}")
     return resultado_json
 
 def status_mais_frequente(resultados):
