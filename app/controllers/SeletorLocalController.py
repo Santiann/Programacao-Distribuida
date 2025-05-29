@@ -58,7 +58,7 @@ def receberTransacao(id, remetente, idSeletor, valor, horario):
 
     saldoRem = rem['qtdMoeda']
     resultado_json = []
-    print('chegou aqui')
+    return jsonify('chegou aqui')
     for v in Validadores:
         for e in escolhidos:
             if v.id == e:
