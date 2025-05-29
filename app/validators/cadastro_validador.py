@@ -1,7 +1,7 @@
 import requests
 import os
 
-HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
+HOST_API = os.getenv("HOST_API", "127.0.0.1")
 
 def cadastrar_validador(nome, ip):
     url = f'http://{HOST_API}:5001/validador/{nome}/{ip}/1000'
