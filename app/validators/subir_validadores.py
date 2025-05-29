@@ -10,7 +10,7 @@ def subir_validadores():
         response = requests.get("http://{HOST_API}:5001/validador")
         validadores = response.json()
     except Exception as e:
-        print(f"{HOST_API}")
+        print(f"http://{HOST_API}:5001/validador")
         print(f"Erro ao consultar seletor: {e}")
         return
 
