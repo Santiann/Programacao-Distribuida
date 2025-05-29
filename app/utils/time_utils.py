@@ -1,7 +1,10 @@
 import requests
+import os
+
+HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
 
 def hora_sistema():
-    url = 'http://127.0.0.1:5000/hora'
+    url = 'http://{HOST_API}:5000/hora'
     try:
         response = requests.get(url)
         if response.status_code == 200:

@@ -4,6 +4,9 @@ from app import db
 from datetime import datetime
 from collections import Counter
 import requests
+import os
+
+HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
 
 def listar_transacoes():
     return Transacao.query.all()
@@ -45,14 +48,14 @@ def status_mais_frequente(resultados):
     return contagem.most_common(1)[0][0]
 
 def editar_transacao_remota(id, status):
-    url = f'http://127.0.0.1:5000/transactions/{id}/{status}'
+    url = f'http://{HOST_API}:5000/transactions/{id}/{status}'
     try:
         requests.post(url)
     except Exception as e:
         print(f'Erro ao atualizar transação central: {e}')
 
 def editar_transacao_seletor(id, status):
-    url = f'http://127.0.0.1:5001/trans/{id}/{status}'
+    url = f'http://{HOST_API}:5001/trans/{id}/{status}'
     try:
         response = requests.post(url)
         if response.status_code == 200:

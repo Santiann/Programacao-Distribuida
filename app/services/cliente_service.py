@@ -1,6 +1,9 @@
 from app.models.Cliente import Cliente
 from app import db
 import requests
+import os
+
+HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
 
 def listar_clientes():
     return Cliente.query.all()
@@ -30,7 +33,7 @@ def deletar_cliente(id):
     return False
 
 def visualizar_Cliente_id(id):
-    url = f'http://127.0.0.1:5000/cliente/{id}'
+    url = f'http://{HOST_API}:5000/cliente/{id}'
     response = requests.get(url)
 
     if response.status_code == 200:

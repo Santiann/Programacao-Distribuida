@@ -1,7 +1,10 @@
 import requests
+import os
+
+HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
 
 def cadastrar_validador(nome, ip):
-    url = f'http://127.0.0.1:5001/validador/{nome}/{ip}/1000'
+    url = f'http://{HOST_API}:5001/validador/{nome}/{ip}/1000'
     response = requests.post(url)
     if response.status_code == 200:
         print(f'{nome} cadastrado com sucesso!')
@@ -11,7 +14,7 @@ def cadastrar_validador(nome, ip):
 def registrar_validadores():
     for i in range(2, 12):
         nome = f"Validador{str(i).zfill(2)}"
-        ip = f"127.0.0.1:{5000 + i}"
+        ip = f"{HOST_API}:{5000 + i}"
         cadastrar_validador(nome, ip)
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 from flask import jsonify, render_template
 from app.validators.validador_base import validar_transacao
 import os
-from app import create_app
+from app import create_app, db
+from app.models.Validador import Validador
 
 app = create_app()
 
@@ -17,6 +18,18 @@ def validar(id, valorRem, valorTrans, horario):
     if MALICIOSO:
         return jsonify({"id": id, "status": 2})
     return jsonify(validar_transacao(id, valorRem, valorTrans, horario))
+
+@app.route('/validar/<int:id>', methods=['DELETE'])
+def ApagarValidador(id):
+    # Lógica invertida para a redução do else e também retirado um nivel de camada.
+    if (id == ''):
+        return jsonify(['Method Not Allowed'])
+
+    objeto = Validador.query.get(id)
+    db.session.delete(objeto)
+    db.session.commit()
+
+    return jsonify({"message": "validador Deletado com Sucesso"})
 
 @app.errorhandler(404)
 def page_not_found(error):

@@ -3,9 +3,11 @@ import subprocess
 import time
 import os
 
+HOST_API = os.getenv("HOST_API", "http://127.0.0.1")
+
 def subir_validadores():
     try:
-        response = requests.get("http://127.0.0.1:5001/validador")
+        response = requests.get("http://{HOST_API}:5001/validador")
         validadores = response.json()
     except Exception as e:
         print(f"Erro ao consultar seletor: {e}")
