@@ -5,6 +5,7 @@ from datetime import datetime
 from collections import Counter
 import requests
 import os
+from flask import Blueprint, jsonify
 
 HOST_API = os.getenv("HOST_API", "127.0.0.1")
 
@@ -40,7 +41,7 @@ def notificar_seletores(transacao):
             response = requests.post(url)
             resultado_json.append(response.json())
         except Exception as e:
-            print(f"Erro ao contatar seletor {seletor.ipSeletor}: {e}")
+            return jsonify(f"Erro ao contatar seletor {seletor.ipSeletor}: {e}")
     return resultado_json
 
 def status_mais_frequente(resultados):
