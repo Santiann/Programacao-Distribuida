@@ -62,7 +62,6 @@ def receberTransacao(id, remetente, idSeletor, valor, horario):
     for v in Validadores:
         for e in escolhidos:
             if v.id == e:
-                print('chegou aqui')
                 url = f'http://{v.ip}/validar/{v.id}/{saldoRem}/{valor}/{horario}'
                 response = requests.post(url)
                 resultado_json.append(response.json())
