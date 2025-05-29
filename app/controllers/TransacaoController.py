@@ -19,7 +19,6 @@ def ListarTransacoes():
 def CriaTransacao(rem, reb, valor):
     if rem and reb and valor:
         transacao = criar_transacao(rem, reb, valor)
-        return jsonify('chegou aqui')
         resultados = notificar_seletores(transacao)
 
         status_final = status_mais_frequente(resultados)

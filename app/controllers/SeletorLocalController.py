@@ -49,6 +49,8 @@ def ApagarMeuSeletor(id):
 
 @seletorlocal_bp.route('/transacao/<int:id>/<int:remetente>/<int:idSeletor>/<int:valor>/<string:horario>', methods=['POST'])
 def receberTransacao(id, remetente, idSeletor, valor, horario):
+    return jsonify('chegou aqui')
+
     if id == '' and remetente == '' and idSeletor == '' and valor == '' and horario == '':
         return jsonify(['Method Not Allowed'])
         
