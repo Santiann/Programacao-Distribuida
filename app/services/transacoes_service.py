@@ -31,7 +31,7 @@ def verifica_transacao(id):
                 # print(f'O pagamento V foi de: {payValidador}')
                 v.FCoins += payValidador
             else:
-                print(f"O valor não está presente na string.")
+                print(f"O valor não está presente na string. {str(v.id)} | {Mtransacoes.idValidadores} | ")
         # print(f'O pagamento restante foi de: {pagamento}')
 
         meuSeletor.fCoins += pagamento
