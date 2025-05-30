@@ -49,7 +49,6 @@ def ApagarMeuSeletor(id):
 
 @seletorlocal_bp.route('/transacao/<int:id>/<int:remetente>/<int:idSeletor>/<int:valor>/<string:horario>', methods=['POST'])
 def receberTransacao(id, remetente, idSeletor, valor, horario):
-    return jsonify('chegou aqui')
 
     if id == '' and remetente == '' and idSeletor == '' and valor == '' and horario == '':
         return jsonify(['Method Not Allowed'])
@@ -60,7 +59,7 @@ def receberTransacao(id, remetente, idSeletor, valor, horario):
 
     saldoRem = rem['qtdMoeda']
     resultado_json = []
-    return jsonify('chegou aqui')
+
     for v in Validadores:
         for e in escolhidos:
             if v.id == e:
