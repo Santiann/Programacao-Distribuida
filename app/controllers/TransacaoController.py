@@ -20,7 +20,6 @@ def CriaTransacao(rem, reb, valor):
     if rem and reb and valor:
         transacao = criar_transacao(rem, reb, valor)
         resultados = notificar_seletores(transacao)
-        return jsonify(resultados)
 
         status_final = status_mais_frequente(resultados)
         editar_transacao_remota(transacao.id, status_final)
