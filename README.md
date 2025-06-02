@@ -105,8 +105,10 @@ python3 app/validators/cadastro_validador.py
 
 #### 🛡️ Para subir os validadores (portas 5002 a 5011)
 ```bash
-python3 app/validators/subir_validadores.py 
+python3 app/validators/subir_validadores.py
 ```
+O caminho para `run_validador.py` é resolvido dinamicamente dentro desse script,
+dispensando a necessidade de usar caminhos absolutos.
 
 #### 🛡️ Para matar todos os validadores (portas 5002 a 5011)
 ```bash
