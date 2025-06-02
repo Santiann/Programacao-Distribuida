@@ -12,7 +12,7 @@ from app.services.cliente_service import visualizar_Cliente_id
 seletorlocal_bp = Blueprint('seletorlocal_bp', __name__)
 
 @seletorlocal_bp.route('/meuSeletor', methods=['GET'])
-def Seletor():
+def seletor():
     seletor = MeuSeletor.query.all()
     return jsonify(seletor)
     
@@ -22,7 +22,7 @@ def transacoes():
     return jsonify(transacoes)
 
 @seletorlocal_bp.route('/trans/<int:idTransacao>/<int:status>', methods=['POST'])
-def AttTransacoes(idTransacao, status):
+def att_transacoes(idTransacao, status):
     if idTransacao == '' and status == '':
         return jsonify(['Method Not Allowed'])
 
@@ -36,7 +36,7 @@ def AttTransacoes(idTransacao, status):
     return jsonify(Mtransacoes)
 
 @seletorlocal_bp.route('/meuSeletor/<int:id>', methods=['DELETE'])
-def ApagarMeuSeletor(id):
+def apagar_meu_seletor(id):
     # Lógica invertida para a redução do else e também retirado um nivel de camada.
     if (id == ''):
         return jsonify(['Method Not Allowed'])
@@ -48,7 +48,7 @@ def ApagarMeuSeletor(id):
     return jsonify({"message": "meuSeletor Deletado com Sucesso"})
 
 @seletorlocal_bp.route('/transacao/<int:id>/<int:remetente>/<int:idSeletor>/<int:valor>/<string:horario>', methods=['POST'])
-def receberTransacao(id, remetente, idSeletor, valor, horario):
+def receber_transacao(id, remetente, idSeletor, valor, horario):
 
     if id == '' and remetente == '' and idSeletor == '' and valor == '' and horario == '':
         return jsonify(['Method Not Allowed'])

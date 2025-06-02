@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify
 from app.services.transacao_service import (
-    listar_transacoes,
-    criar_transacao,
-    editar_transacao,
+    listar_transacoes as listar_transacoes_service,
+    criar_transacao as criar_transacao_service,
+    editar_transacao as editar_transacao_service,
     notificar_seletores,
     status_mais_frequente,
     editar_transacao_remota,
@@ -12,13 +12,13 @@ from app.services.transacao_service import (
 transacao_bp = Blueprint('transacao_bp', __name__)
 
 @transacao_bp.route('/transacoes', methods=['GET'])
-def ListarTransacoes():
-    return jsonify(listar_transacoes())
+def listar_transacoes():
+    return jsonify(listar_transacoes_service())
 
 @transacao_bp.route('/transacoes/<int:rem>/<int:reb>/<int:valor>', methods=['POST'])
-def CriaTransacao(rem, reb, valor):
+def cria_transacao(rem, reb, valor):
     if rem and reb and valor:
-        transacao = criar_transacao(rem, reb, valor)
+        transacao = criar_transacao_service(rem, reb, valor)
         resultados = notificar_seletores(transacao)
 
         status_final = status_mais_frequente(resultados)
@@ -31,10 +31,10 @@ def CriaTransacao(rem, reb, valor):
     return jsonify(['Method Not Allowed'])
 
 @transacao_bp.route('/transactions/<int:id>/<int:status>', methods=['POST'])
-def EditaTransacao(id, status):
+def edita_transacao(id, status):
     if id and status:
         try:
-            transacao = editar_transacao(id, status)
+            transacao = editar_transacao_service(id, status)
             return jsonify(transacao) if transacao else jsonify(["Transação não encontrada"])
         except Exception:
             return jsonify({"message": "transação não atualizada"})
