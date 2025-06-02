@@ -13,6 +13,7 @@ Sistema distribuído que simula o processo de validação de uma moeda digital u
   - [Seleção de Validadores](#seleção-de-validadores)
   - [Recompensas e Penalidades](#recompensas-e-penalidades)
 - [🚀 Como Executar](#-como-executar)
+- [🧪 Testes](#3-rodar-os-testes)
 - [📄 Licença](#-licença)
 
 ---
@@ -119,6 +120,16 @@ pkill -f run_validador.py
 Esse script irá:
 - Iniciar todos os validadores (inclusive o malicioso)
 - Cadastrá-los automaticamente no seletor com seus respectivos FCoins
+
+### 3. Rodar os testes
+Para garantir que tudo está funcionando, execute a suíte de testes com o **pytest**:
+
+```bash
+pytest
+```
+
+Caso nunca tenha utilizado o pytest, instale-o com `pip install pytest`.
+
 
 ---
 
