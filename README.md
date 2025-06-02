@@ -77,6 +77,7 @@ Um validador deve:
 ## 🚀 Como Executar
 
 ### 1. Instalar dependências
+Todas as dependências do projeto estão descritas no arquivo `requirements.txt`.
 
 ```bash
 python3 -m venv venv
