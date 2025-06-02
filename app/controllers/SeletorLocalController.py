@@ -23,8 +23,6 @@ def transacoes():
 
 @seletorlocal_bp.route('/trans/<int:idTransacao>/<int:status>', methods=['POST'])
 def att_transacoes(idTransacao, status):
-    if idTransacao == '' and status == '':
-        return jsonify(['Method Not Allowed'])
 
     Mtransacoes = minhasTransacoes.query.filter_by(
         idTransacao=idTransacao).first()
@@ -38,8 +36,6 @@ def att_transacoes(idTransacao, status):
 @seletorlocal_bp.route('/meuSeletor/<int:id>', methods=['DELETE'])
 def apagar_meu_seletor(id):
     # Lógica invertida para a redução do else e também retirado um nivel de camada.
-    if (id == ''):
-        return jsonify(['Method Not Allowed'])
 
     objeto = MeuSeletor.query.get(id)
     db.session.delete(objeto)
@@ -49,9 +45,6 @@ def apagar_meu_seletor(id):
 
 @seletorlocal_bp.route('/transacao/<int:id>/<int:remetente>/<int:idSeletor>/<int:valor>/<string:horario>', methods=['POST'])
 def receber_transacao(id, remetente, idSeletor, valor, horario):
-
-    if id == '' and remetente == '' and idSeletor == '' and valor == '' and horario == '':
-        return jsonify(['Method Not Allowed'])
         
     Validadores = Validador.query.all()
     rem = visualizar_Cliente_id(remetente)
