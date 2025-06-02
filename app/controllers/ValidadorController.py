@@ -41,5 +41,7 @@ def apagar_validador(id):
     db.session.delete(objeto)
     db.session.commit()
 
+    calcular_percent()
+
     return jsonify({"message": "Validador Deletado com Sucesso"})
 
