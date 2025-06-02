@@ -4,6 +4,10 @@ from app import db
 from flask import jsonify
 from app.models.Validador import Validador
 from app.services.validador_service import calcular_percent
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def Cadastro_das_Transacoes(idTransacao, fCoins, idValidadores, RValidadores):
     objeto = minhasTransacoes(idTransacao=idTransacao, fCoins=fCoins,
@@ -30,13 +34,17 @@ def verifica_transacao(id):
                 pagamento -= payValidador
                 # print(f'O pagamento V foi de: {payValidador}')
                 v.FCoins += payValidador
-                print(f"Funcionou")
+                logger.info("Funcionou")
             else:
-                print(f"O valor não está presente na string. {str(v.id)} | {Mtransacoes.idValidadores} | ")
+                logger.info(
+                    "O valor não está presente na string. %s | %s | ",
+                    str(v.id),
+                    Mtransacoes.idValidadores,
+                )
         # print(f'O pagamento restante foi de: {pagamento}')
 
         meuSeletor.fCoins += pagamento
         db.session.commit()
         calcular_percent()
     else:
-        print('Validadores erraram ')
+        logger.info('Validadores erraram ')

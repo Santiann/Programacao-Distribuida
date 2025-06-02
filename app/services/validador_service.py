@@ -5,6 +5,10 @@ import time
 from app.models.MeuSeletor import MeuSeletor
 from app.models.Validador import Validador
 from app import db
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def calcular_percent():
     validadores = Validador.query.all()
@@ -35,19 +39,19 @@ def escolhe_validadores():
     Validadores = Validador.query.all()
 
     if len(Validadores) < 3:
-        print('Transação em espera aguarde 1 min')
+        logger.info('Transação em espera aguarde 1 min')
         time.sleep(60)
         Validadores = Validador.query.all()
         if len(Validadores) < 3:
-            print('Não foi possivel concluir a transação por falta de validadores')
+            logger.error('Não foi possivel concluir a transação por falta de validadores')
             return 0
     if len(Validadores) >= 5:
         escolhidos = cinco_validadores()
-        print(f'5 ou mais validadores os escolhidos sao:  {escolhidos}')
+        logger.info('5 ou mais validadores os escolhidos sao:  %s', escolhidos)
         return escolhidos
     elif len(Validadores) == 3 or len(Validadores) == 4:
         escolhidos = tres_validadores()
-        print(f'3 ou 4 validadores os escolhidos sao:  {escolhidos}')
+        logger.info('3 ou 4 validadores os escolhidos sao:  %s', escolhidos)
         return escolhidos
 
 def cinco_validadores():
