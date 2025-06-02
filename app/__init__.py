@@ -18,6 +18,7 @@ def create_app():
     from app.controllers.TransacaoController import transacao_bp
     from app.controllers.ValidadorController import validador_bp
     from app.controllers.SeletorLocalController import seletorlocal_bp
+    from app.controllers.HoraController import hora_bp
 
 
     app.register_blueprint(cliente_bp)
@@ -25,6 +26,7 @@ def create_app():
     app.register_blueprint(transacao_bp)
     app.register_blueprint(validador_bp)
     app.register_blueprint(seletorlocal_bp)
+    app.register_blueprint(hora_bp)
 
 
     return app

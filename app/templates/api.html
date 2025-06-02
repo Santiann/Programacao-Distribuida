@@ -54,15 +54,18 @@
                   
 
                 <h3>Hora</h3>
-                <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion accordion-flush" id="accordionHora">
                     <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      <h2 class="accordion-header" id="hora-heading">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#hora-collapse" aria-expanded="false" aria-controls="hora-collapse">
                             <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-secondary">GET</span></h5> <kbd>/hora</kbd>
                         </button>
                       </h2>
-                  </div>
-            </div>
+                      <div id="hora-collapse" class="accordion-collapse collapse" aria-labelledby="hora-heading" data-bs-parent="#accordionHora">
+                        <div class="accordion-body">Retorna o timestamp atual do servidor.</div>
+                      </div>
+                    </div>
+                </div>
 
             <h3>Transações</h3>
                 <div class="accordion accordion-flush" id="accordionFlushExample">
