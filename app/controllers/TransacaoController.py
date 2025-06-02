@@ -22,7 +22,7 @@ def CriaTransacao(rem, reb, valor):
         resultados = notificar_seletores(transacao)
 
         status_final = status_mais_frequente(resultados)
-        editar_transacao_remota(transacao.id, status_final)
+        transacao = editar_transacao_remota(transacao.id, status_final)
 
         for resultado in resultados:
             editar_transacao_seletor(resultado['id_transacao'], resultado['status'])
@@ -30,7 +30,7 @@ def CriaTransacao(rem, reb, valor):
         return jsonify(transacao)
     return jsonify(['Method Not Allowed'])
 
-transacao_bp.route('/transactions/<int:id>/<int:status>', methods=['POST'])
+@transacao_bp.route('/transactions/<int:id>/<int:status>', methods=['POST'])
 def EditaTransacao(id, status):
     if id and status:
         try:

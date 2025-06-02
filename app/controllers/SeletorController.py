@@ -25,7 +25,7 @@ def UmSeletor(id):
     else:
         return jsonify(['Method Not Allowed'])
 
-seletor_bp.route('/seletor/<int:id>/<string:nome>/<string:ip>', methods=['POST'])
+@seletor_bp.route('/seletor/<int:id>/<string:nome>/<string:ip>', methods=['POST'])
 def EditarSeletor(id, nome, ip):
     if id and nome and ip:
         try:
@@ -36,7 +36,7 @@ def EditarSeletor(id, nome, ip):
     else:
         return jsonify(['Method Not Allowed'])
 
-seletor_bp.route('/seletor/<int:id>', methods=['DELETE'])
+@seletor_bp.route('/seletor/<int:id>', methods=['DELETE'])
 def ApagarSeletor(id):
     if id:
         if deletar_seletor(id):
