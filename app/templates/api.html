@@ -90,9 +90,77 @@
                       </div>
                     </div>
                   </div>
-        </div>    
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <h3>Seletores</h3>
+                <div class="accordion accordion-flush" id="accordionSeletor">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="seletor-headingOne">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#seletor-collapseOne" aria-expanded="false" aria-controls="seletor-collapseOne">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-secondary">GET</span></h5> <kbd>/seletor</kbd> <div style="margin-left:10px;margin-right:10px">or</div> <kbd>/seletor{id}</kbd>
+                        </button>
+                      </h2>
+                      <div id="seletor-collapseOne" class="accordion-collapse collapse" aria-labelledby="seletor-headingOne" data-bs-parent="#accordionSeletor">
+                        <div class="accordion-body">Retorna todos os seletores ou um seletor específico.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="seletor-headingTwo">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#seletor-collapseTwo" aria-expanded="false" aria-controls="seletor-collapseTwo">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-primary">POST</span></h5> <kbd>/seletor{nome,ip}</kbd> <div style="margin-left:10px;margin-right:10px">or</div> <kbd>/seletor{id,nome,ip}</kbd>
+                        </button>
+                      </h2>
+                      <div id="seletor-collapseTwo" class="accordion-collapse collapse" aria-labelledby="seletor-headingTwo" data-bs-parent="#accordionSeletor">
+                        <div class="accordion-body">Cadastra um novo seletor ou edita um existente.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="seletor-headingThree">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#seletor-collapseThree" aria-expanded="false" aria-controls="seletor-collapseThree">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-danger">DELETE</span></h5> <kbd>/seletor/{id}</kbd>
+                        </button>
+                      </h2>
+                      <div id="seletor-collapseThree" class="accordion-collapse collapse" aria-labelledby="seletor-headingThree" data-bs-parent="#accordionSeletor">
+                        <div class="accordion-body">Remove o seletor informado.</div>
+                      </div>
+                    </div>
+                  </div>
+
+            <h3>Clientes</h3>
+                <div class="accordion accordion-flush" id="accordionCliente">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="cliente-headingOne">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#cliente-collapseOne" aria-expanded="false" aria-controls="cliente-collapseOne">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-secondary">GET</span></h5> <kbd>/cliente</kbd> <div style="margin-left:10px;margin-right:10px">or</div> <kbd>/cliente{id}</kbd>
+                        </button>
+                      </h2>
+                      <div id="cliente-collapseOne" class="accordion-collapse collapse" aria-labelledby="cliente-headingOne" data-bs-parent="#accordionCliente">
+                        <div class="accordion-body">Lista todos os clientes ou retorna um cliente específico.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="cliente-headingTwo">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#cliente-collapseTwo" aria-expanded="false" aria-controls="cliente-collapseTwo">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-primary">POST</span></h5> <kbd>/cliente{nome,senha,qtdMoedas}</kbd> <div style="margin-left:10px;margin-right:10px">or</div> <kbd>/cliente{id,qtdMoedas}</kbd>
+                        </button>
+                      </h2>
+                      <div id="cliente-collapseTwo" class="accordion-collapse collapse" aria-labelledby="cliente-headingTwo" data-bs-parent="#accordionCliente">
+                        <div class="accordion-body">Cadastra um novo cliente ou atualiza sua quantidade de moedas.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="cliente-headingThree">
+                        <button class="accordion-button collapsed" style="padding: 5px" type="button" data-bs-toggle="collapse" data-bs-target="#cliente-collapseThree" aria-expanded="false" aria-controls="cliente-collapseThree">
+                            <h5 style="margin-bottom: 1px;margin-right: 10px"><span class="badge bg-danger">DELETE</span></h5> <kbd>/cliente/{id}</kbd>
+                        </button>
+                      </h2>
+                      <div id="cliente-collapseThree" class="accordion-collapse collapse" aria-labelledby="cliente-headingThree" data-bs-parent="#accordionCliente">
+                        <div class="accordion-body">Exclui o cliente correspondente ao id informado.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
