@@ -2,6 +2,10 @@ from app.models.Cliente import Cliente
 from app import db
 import requests
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 HOST_API = os.getenv("HOST_API", "127.0.0.1")
 
@@ -40,4 +44,4 @@ def visualizar_Cliente_id(id):
         dados = response.json()
         return dados
     else:
-        print('Falha ao enviar a mensagem.')
+        logger.error('Falha ao enviar a mensagem.')

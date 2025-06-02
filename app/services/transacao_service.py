@@ -5,7 +5,11 @@ from datetime import datetime
 from collections import Counter
 import requests
 import os
+import logging
 from flask import Blueprint, jsonify
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 HOST_API = os.getenv("HOST_API", "127.0.0.1")
 
@@ -53,13 +57,13 @@ def editar_transacao_remota(id, status):
     try:
         return requests.post(url)
     except Exception as e:
-        print(f'Erro ao atualizar transação central: {e}')
+        logger.error(f'Erro ao atualizar transação central: {e}')
 
 def editar_transacao_seletor(id, status):
     url = f'http://{HOST_API}:5001/trans/{id}/{status}'
     try:
         response = requests.post(url)
         if response.status_code == 200:
-            print('Resposta do seletor:', response.json())
+            logger.info('Resposta do seletor: %s', response.json())
     except Exception as e:
-        print(f'Erro ao atualizar seletor: {e}')
+        logger.error(f'Erro ao atualizar seletor: {e}')
