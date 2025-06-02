@@ -1,5 +1,6 @@
 from app.models.Transacao import Transacao
 from app.models.Seletor import Seletor
+from app.models.Cliente import Cliente
 from app import db
 from datetime import datetime
 from collections import Counter
@@ -32,6 +33,12 @@ def editar_transacao(id, status):
     transacao = Transacao.query.filter_by(id=id).first()
     if transacao:
         transacao.status = status
+        if status == 1:
+            remetente = Cliente.query.filter_by(id=transacao.remetente).first()
+            recebedor = Cliente.query.filter_by(id=transacao.recebedor).first()
+            if remetente and recebedor:
+                remetente.qtdMoeda -= transacao.valor
+                recebedor.qtdMoeda += transacao.valor
         db.session.commit()
     return transacao
 
