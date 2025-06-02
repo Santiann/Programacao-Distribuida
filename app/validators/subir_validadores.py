@@ -23,6 +23,7 @@ def subir_validadores():
             os.path.dirname(__file__), '..', '..', 'run_validador.py'
         )
         subprocess.Popen([
+            # "python3", "/home/ubuntu/Programacao-Distribuida/run_validador.py"
             "python3", script_path
         ], env={
             "PORTA": str(porta),
