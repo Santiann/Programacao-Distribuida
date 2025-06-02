@@ -62,7 +62,8 @@ def status_mais_frequente(resultados):
 def editar_transacao_remota(id, status):
     url = f'http://{HOST_API}:5000/transactions/{id}/{status}'
     try:
-        return requests.post(url)
+        response = requests.post(url)
+        return response.json()
     except Exception as e:
         logger.error(f'Erro ao atualizar transação central: {e}')
 
