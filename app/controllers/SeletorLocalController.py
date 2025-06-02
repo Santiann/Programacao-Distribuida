@@ -50,6 +50,9 @@ def receber_transacao(id, remetente, idSeletor, valor, horario):
     rem = visualizar_Cliente_id(remetente)
     escolhidos = escolhe_validadores()
 
+    if not escolhidos:
+        return jsonify({"error": "Sem validadores disponíveis"})
+
     saldoRem = rem['qtdMoeda']
     resultado_json = []
 

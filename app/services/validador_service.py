@@ -44,7 +44,7 @@ def escolhe_validadores():
         Validadores = Validador.query.all()
         if len(Validadores) < 3:
             logger.error('Não foi possivel concluir a transação por falta de validadores')
-            return 0
+            return []
     if len(Validadores) >= 5:
         escolhidos = cinco_validadores()
         logger.info('5 ou mais validadores os escolhidos sao:  %s', escolhidos)
