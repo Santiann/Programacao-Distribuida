@@ -19,8 +19,11 @@ def subir_validadores():
         id_validador = validador['id']
         eh_malicioso = "1" if id_validador == 10 else "0"
 
+        script_path = os.path.join(
+            os.path.dirname(__file__), '..', '..', 'run_validador.py'
+        )
         subprocess.Popen([
-            "python3", "/home/ubuntu/Programacao-Distribuida/run_validador.py"
+            "python3", script_path
         ], env={
             "PORTA": str(porta),
             "VALIDADOR_ID": str(id_validador),
