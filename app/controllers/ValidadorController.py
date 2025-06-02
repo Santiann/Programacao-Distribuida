@@ -27,18 +27,12 @@ def cadastro_dos_validadores(nome, ip, FCoins):
 
 @validador_bp.route('/validador/<int:id>', methods=['GET'])
 def um_seletor(id):
-    if (id == ''):
-        return jsonify(['Method Not Allowed'])
-        
     produto = Validador.query.get(id)
     return jsonify(produto)
 
 
 @validador_bp.route('/validador/<int:id>', methods=['DELETE'])
 def apagar_validador(id):
-    if (id == ''):
-        return jsonify(['Method Not Allowed'])
-        
     objeto = Validador.query.get(id)
     meuSeletor = MeuSeletor.query.filter_by(id=1).first()
 
