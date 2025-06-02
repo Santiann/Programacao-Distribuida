@@ -6,13 +6,13 @@ from app.services.validador_service import calcular_percent
 validador_bp = Blueprint('validador_bp', __name__)
 
 @validador_bp.route('/validador', methods=['GET'])
-def ListarCliente():
+def listar_cliente():
     validador = Validador.query.all()
     return jsonify(validador)
 
 
 @validador_bp.route('/validador/<string:nome>/<string:ip>/<int:FCoins>', methods=['POST'])
-def Cadastro_dos_Validadores(nome, ip, FCoins):
+def cadastro_dos_validadores(nome, ip, FCoins):
     if nome == '' and ip == '' and FCoins < 100:
         return jsonify(['Method Not Allowed'])
 
@@ -26,7 +26,7 @@ def Cadastro_dos_Validadores(nome, ip, FCoins):
 
 
 @validador_bp.route('/validador/<int:id>', methods=['GET'])
-def UmSeletor(id):
+def um_seletor(id):
     if (id == ''):
         return jsonify(['Method Not Allowed'])
         
@@ -35,7 +35,7 @@ def UmSeletor(id):
 
 
 @validador_bp.route('/validador/<int:id>', methods=['DELETE'])
-def ApagarValidador(id):
+def apagar_validador(id):
     if (id == ''):
         return jsonify(['Method Not Allowed'])
         
